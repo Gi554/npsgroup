@@ -215,11 +215,17 @@ const projects = [
   .real-badge--grey   { background: var(--steel); }
 
   /* ── Mobile ── */
-  @media (max-width: 768px) {
+  @media (max-width: 720px) {
+    .real-page { padding: 60px 0 80px; }
+    .real-header { margin-bottom: 28px; }
+    .real-filters { gap: 8px; margin-bottom: 24px; }
+    .real-filter { padding: 7px 16px; font-size: .6rem; }
     .real-bento,
-    .real-bento.filtered { grid-template-columns: 1fr; }
+    .real-bento.filtered { grid-template-columns: 1fr; gap: 14px; }
     .real-card--large,
     .real-card--small,
-    .real-card--medium { grid-column: span 1; min-height: 280px; }
+    .real-card--medium { grid-column: span 1; min-height: 260px; }
+    .real-overlay { padding: 20px 24px; }
+    .real-overlay h2 { font-size: 1.15rem; }
   }
 </style>

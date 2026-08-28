@@ -7,10 +7,127 @@ const links = [
 ---
 <header class="site-header">
   <div class="container navigation">
-    <a class="brand" href="/" aria-label="NPS Group — Accueil"><span class="brand-mark"><img src="/images/nps-group-logo.jpg" alt="NPS Group" width="150" height="150" /></span><span>NPS</span> GROUP</a>
+    <a class="brand" href="/" aria-label="NPS Group — Accueil">
+      <span class="brand-mark"><img src="/images/nps-group-logo.jpg" alt="NPS Group" width="150" height="150" /></span>
+      <span>NPS</span> GROUP
+    </a>
+
     <nav aria-label="Navigation principale">
       {links.map((link) => <a href={link.href}>{link.label}</a>)}
     </nav>
+
     <a class="button button-small" href="/contact/#devis">Demander un devis</a>
+
+    <button class="burger-btn" id="burger-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <nav aria-label="Navigation mobile">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+      <a class="button mob-cta" href="/contact/#devis">Demander un devis →</a>
+    </nav>
   </div>
 </header>
+
+<script>
+  const btn     = document.getElementById('burger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  function toggle(force?: boolean) {
+    const isOpen = force ?? btn?.getAttribute('aria-expanded') !== 'true';
+    btn?.setAttribute('aria-expanded', String(isOpen));
+    mobileNav?.setAttribute('aria-hidden', String(!isOpen));
+    btn?.classList.toggle('is-open', isOpen);
+    mobileNav?.classList.toggle('is-open', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+  }
+
+  btn?.addEventListener('click', () => toggle());
+
+  mobileNav?.querySelectorAll('a').forEach(link =>
+    link.addEventListener('click', () => toggle(false))
+  );
+</script>
+
+<style>
+  /* ── Burger button ── */
+  .burger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  .burger-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .2s ease;
+    transform-origin: center;
+  }
+  .burger-btn.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger-btn.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .burger-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── Mobile nav panel ── */
+  .mobile-nav {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .32s cubic-bezier(.4,0,.2,1);
+    background: rgba(241,251,255,.97);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-top: 1px solid rgba(19,29,33,.07);
+  }
+  .mobile-nav.is-open { max-height: 420px; }
+
+  .mobile-nav nav {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0 28px;
+  }
+  .mobile-nav nav a {
+    display: block;
+    color: var(--ink);
+    font-size: .95rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 15px 24px;
+    border-bottom: 1px solid rgba(19,29,33,.06);
+    transition: color .18s, background .18s;
+    letter-spacing: -.01em;
+  }
+  .mobile-nav nav a:hover { color: var(--orange); background: rgba(243,156,18,.04); }
+
+  .mob-cta {
+    margin: 20px 24px 0;
+    text-align: center;
+    justify-content: center;
+    border-bottom: none !important;
+    background: var(--orange);
+    color: #fff !important;
+    border-radius: 999px;
+    padding: 14px 24px !important;
+    font-size: .82rem !important;
+  }
+  .mob-cta:hover { background: #d4860e !important; color: #fff !important; }
+
+  @media (max-width: 720px) {
+    .burger-btn { display: flex; }
+    .mobile-nav { display: block; }
+  }
+</style>

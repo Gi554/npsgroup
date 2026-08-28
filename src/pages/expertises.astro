@@ -202,10 +202,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .exp-btn-outline:hover { background: var(--orange); color: #fff; }
 
   /* ── Mobile ── */
-  @media (max-width: 768px) {
-    .exp-bento { grid-template-columns: 1fr; }
+  @media (max-width: 720px) {
+    .exp-page { padding: 60px 0 80px; }
+    .exp-header { margin-bottom: 32px; }
+    .exp-bento { grid-template-columns: 1fr; gap: 16px; }
     .exp-card--wide,
     .exp-card--narrow,
     .exp-card--half { grid-column: span 1; }
+    .exp-img-wrap { height: 200px; }
+    .exp-img-body { padding: 22px 24px 26px; }
   }
 </style>

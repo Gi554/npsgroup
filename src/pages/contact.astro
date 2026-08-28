@@ -316,8 +316,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .cnt-map span { font-size: .72rem; color: var(--steel); opacity: .65; }
 
   /* ── Mobile ── */
-  @media (max-width: 768px) {
-    .cnt-grid  { grid-template-columns: 1fr; }
+  @media (max-width: 720px) {
+    .cnt-page  { padding: 60px 0 80px; }
+    .cnt-header { margin-bottom: 32px; }
+    .cnt-grid  { grid-template-columns: 1fr; gap: 20px; }
     .form-row  { grid-template-columns: 1fr; }
+    .cnt-form-card { padding: 24px 20px; border-radius: 20px; }
+    .coord-card { padding: 24px 20px; border-radius: 20px; }
+    .cnt-img-card { height: 180px; }
   }
 </style>
