@@ -2,7 +2,7 @@
 
 Site vitrine de **NPS Group**, entreprise de construction, pavage et menuiserie aluminium basée à Abomey-Calavi, Bénin.
 
-🌐 **Production :** [https://npsgroup.bj](https://npsgroup.bj)
+🌐 **Production :** [https://npsgroup.online](https://npsgroup.online)
 
 ---
 
