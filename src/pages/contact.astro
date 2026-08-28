@@ -102,12 +102,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </a>
 
-        <!-- Placeholder carte -->
-        <div class="cnt-map">
-          <span class="cnt-map-icon" aria-hidden="true">◎</span>
-          <p>Carte de localisation</p>
-          <span>Abomey-Calavi, Bénin</span>
-        </div>
 
       </aside>
     </div>
@@ -299,21 +293,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0;
   }
 
-  /* Placeholder carte géographique */
-  .cnt-map {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 28px;
-    height: 130px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-  }
-  .cnt-map-icon { font-size: 1.8rem; color: var(--steel); opacity: .4; }
-  .cnt-map p    { margin: 0; font-size: .8rem; font-weight: 700; color: var(--steel); }
-  .cnt-map span { font-size: .72rem; color: var(--steel); opacity: .65; }
 
   /* ── Mobile ── */
   @media (max-width: 720px) {
