@@ -1,0 +1,16 @@
+---
+const links = [
+  { href: '/expertises/', label: 'Expertises' },
+  { href: '/realisations/', label: 'Réalisations' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+<header class="site-header">
+  <div class="container navigation">
+    <a class="brand" href="/" aria-label="NPS Group — Accueil"><span class="brand-mark"><img src="/images/nps-group-logo.jpg" alt="NPS Group" width="150" height="150" /></span><span>NPS</span> GROUP</a>
+    <nav aria-label="Navigation principale">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+    <a class="button button-small" href="/contact/#devis">Demander un devis</a>
+  </div>
+</header>

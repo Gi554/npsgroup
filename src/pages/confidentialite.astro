@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Politique de confidentialité | NPS Group"
+  description="Politique de confidentialité du site npsgroup.bj — comment NPS Group collecte et utilise vos données personnelles."
+>
+  <div class="container legal-page">
+
+    <header class="legal-header">
+      <p class="eyebrow">LÉGAL</p>
+      <h1>Politique de <em>confidentialité</em></h1>
+    </header>
+
+    <div class="legal-body">
+
+      <section>
+        <h2>1. Responsable du traitement</h2>
+        <p>Le responsable du traitement des données personnelles collectées via ce site est :</p>
+        <p><strong>NPS Group</strong> — Togoudo, Abomey-Calavi, République du Bénin<br />
+        Téléphone : <a href="tel:+2290144598447">+229 01 44 59 84 47</a><br />
+        E-mail : <a href="mailto:npsgroupcontact@gmail.com">npsgroupcontact@gmail.com</a></p>
+      </section>
+
+      <section>
+        <h2>2. Données collectées</h2>
+        <p>Lorsque vous remplissez le formulaire de contact ou de demande de devis, nous collectons les informations suivantes :</p>
+        <ul>
+          <li>Nom complet ou raison sociale</li>
+          <li>Adresse e-mail</li>
+          <li>Numéro de téléphone</li>
+          <li>Type de projet et budget estimatif</li>
+          <li>Description du projet</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Finalité du traitement</h2>
+        <p>Les données collectées sont utilisées exclusivement pour :</p>
+        <ul>
+          <li>Répondre à vos demandes de devis et de renseignements</li>
+          <li>Vous contacter dans le cadre de l'étude de votre projet</li>
+        </ul>
+        <p>Les informations saisies dans le formulaire sont transmises via WhatsApp à nos équipes. Elles ne sont pas stockées sur nos serveurs.</p>
+      </section>
+
+      <section>
+        <h2>4. Cookies et traceurs</h2>
+        <p>Ce site n'utilise pas de cookies de traçage ni d'outils d'analyse tiers. Aucune donnée de navigation n'est collectée à des fins publicitaires ou statistiques.</p>
+      </section>
+
+      <section>
+        <h2>5. Durée de conservation</h2>
+        <p>Vos données ne sont conservées que le temps nécessaire au traitement de votre demande. Elles ne sont pas transférées à des tiers sans votre consentement explicite.</p>
+      </section>
+
+      <section>
+        <h2>6. Vos droits</h2>
+        <p>Conformément aux réglementations applicables, vous disposez des droits suivants sur vos données personnelles :</p>
+        <ul>
+          <li>Droit d'accès et de rectification</li>
+          <li>Droit à l'effacement</li>
+          <li>Droit d'opposition au traitement</li>
+        </ul>
+        <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:npsgroupcontact@gmail.com">npsgroupcontact@gmail.com</a></p>
+      </section>
+
+      <section>
+        <h2>7. Modifications</h2>
+        <p>NPS Group se réserve le droit de modifier cette politique de confidentialité à tout moment. Toute mise à jour sera publiée sur cette page.</p>
+      </section>
+
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-page { padding: 80px 0 110px; max-width: 800px; }
+
+  .legal-header { margin-bottom: 52px; }
+  .legal-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -.05em;
+    line-height: 1.08;
+    margin: 12px 0 0;
+    color: var(--ink);
+  }
+  .legal-header em { color: var(--orange); font-style: normal; }
+
+  .legal-body { display: flex; flex-direction: column; gap: 40px; }
+
+  .legal-body section h2 {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--orange);
+    display: inline-block;
+  }
+  .legal-body p, .legal-body li {
+    font-size: .92rem;
+    line-height: 1.75;
+    color: var(--steel);
+    margin: 0 0 8px;
+  }
+  .legal-body ul { padding-left: 20px; margin: 8px 0 0; }
+  .legal-body li { margin: 4px 0; }
+  .legal-body a { color: var(--orange); text-decoration: none; }
+  .legal-body a:hover { text-decoration: underline; }
+  .legal-body strong { color: var(--ink); font-weight: 700; }
+</style>

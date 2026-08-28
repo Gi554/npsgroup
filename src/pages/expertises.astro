@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Nos expertises | NPS Group" description="Découvrez les expertises de NPS Group : bâtiment, pavage, menuiserie aluminium et études BIM.">
+
+  <div class="container exp-page">
+
+    <header class="exp-header">
+      <p class="eyebrow">SAVOIR-FAIRE</p>
+      <h1>Nos Expertises</h1>
+      <p class="exp-lead">L'excellence structurelle au service de vos projets. Découvrez nos pôles d'ingénierie intégrés, de la conception architecturale à la réalisation sur site.</p>
+    </header>
+
+    <div class="exp-bento">
+
+      <!-- Card 1 : Bâtiment & Génie Civil -->
+      <article class="exp-card exp-card--wide">
+        <div class="exp-img-wrap">
+          <img
+            src="/images/real-villa-cotonou.jpg"
+            alt="Chantier bâtiment NPS Group"
+            loading="lazy" decoding="async"
+          />
+          <div class="exp-chip exp-chip--glass">Construction Heavy</div>
+        </div>
+        <div class="exp-img-body exp-body--light">
+          <h2>Bâtiment & Génie Civil</h2>
+          <p>Expertise reconnue dans la réalisation d'infrastructures lourdes, de complexes industriels et de bâtiments de grande envergure. Notre approche rigoureuse garantit durabilité et conformité aux normes internationales les plus strictes.</p>
+          <a class="button" href="/contact/#devis">En savoir plus →</a>
+        </div>
+      </article>
+
+      <!-- Card 2 : Aménagement Urbain & Pavage -->
+      <article class="exp-card exp-card--narrow">
+        <div class="exp-img-wrap">
+          <img
+            src="/images/amenagement-place-publique.jpg"
+            alt="Aménagement urbain et pavage NPS Group"
+            loading="lazy" decoding="async"
+          />
+          <div class="exp-chip exp-chip--glass">Infrastructures</div>
+        </div>
+        <div class="exp-img-body exp-body--dark">
+          <h2>Aménagement Urbain & Pavage</h2>
+          <p>Conception et exécution de voiries, réseaux divers et aménagements paysagers durables pour structurer l'espace public de demain avec précision et esthétisme.</p>
+          <a class="exp-btn-outline" href="/contact/#devis">En savoir plus →</a>
+        </div>
+      </article>
+
+      <!-- Card 3 : Atelier Aluminium de Précision -->
+      <article class="exp-card exp-card--half">
+        <div class="exp-img-wrap">
+          <img
+            src="/images/atelier-aluminium.jpg"
+            alt="Atelier aluminium NPS Group"
+            loading="lazy" decoding="async"
+          />
+          <div class="exp-chip exp-chip--glass">Production Intégrée</div>
+        </div>
+        <div class="exp-img-body exp-body--light">
+          <h2>Atelier Aluminium de Précision</h2>
+          <p>Façonnage de profilés haute performance, menuiseries complexes et structures légères. Notre atelier modernisé garantit une maîtrise totale de la qualité et des délais pour des façades irréprochables.</p>
+          <a class="button button-small" href="/contact/#devis">En savoir plus</a>
+        </div>
+      </article>
+
+      <!-- Card 4 : Bureau d'Études BIM -->
+      <article class="exp-card exp-card--half">
+        <div class="exp-img-wrap">
+          <img
+            src="/images/bureau-bim.jpg"
+            alt="Bureau d'études BIM NPS Group"
+            loading="lazy" decoding="async"
+          />
+          <div class="exp-chip exp-chip--glass">Ingénierie Digitale</div>
+        </div>
+        <div class="exp-img-body exp-body--light">
+          <h2>Bureau d'Études BIM</h2>
+          <p>Modélisation des données du bâtiment (BIM) pour une coordination parfaite de tous les corps d'état. Détection des conflits en amont, optimisation des coûts et visualisation immersive avant le premier coup de pioche.</p>
+          <a class="button button-small" href="/contact/#devis">En savoir plus</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  /* ── Page wrapper ── */
+  .exp-page { padding: 80px 0 110px; }
+
+  /* ── Header ── */
+  .exp-header { max-width: 680px; margin-bottom: 52px; }
+  .exp-header h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -.05em;
+    line-height: 1.06;
+    margin: 12px 0 18px;
+    color: var(--ink);
+  }
+  .exp-lead { color: var(--steel); font-size: 1rem; line-height: 1.68; margin: 0; }
+
+  /* ── Bento grid ── */
+  .exp-bento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+  .exp-card--wide   { grid-column: span 7; }
+  .exp-card--narrow { grid-column: span 5; }
+  .exp-card--half   { grid-column: span 6; }
+
+  /* ── Base card ── */
+  .exp-card {
+    border-radius: 28px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px -10px rgba(134,83,0,.08);
+    border: 1px solid rgba(216,194,173,.22);
+  }
+
+  /* ── Image wrapper ── */
+  .exp-img-wrap {
+    position: relative;
+    height: 220px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .exp-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+  }
+  .exp-card:hover .exp-img-wrap img { transform: scale(1.05); }
+
+  /* ── Card body ── */
+  .exp-img-body {
+    padding: 28px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .exp-body--light { background: var(--paper); }
+  .exp-body--dark  { background: var(--ink); }
+
+  .exp-img-body h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -.035em;
+    line-height: 1.15;
+    margin: 0 0 12px;
+  }
+  .exp-body--light h2 { color: var(--ink); }
+  .exp-body--dark  h2 { color: #f1fbff; }
+
+  .exp-img-body p {
+    font-size: .87rem;
+    line-height: 1.7;
+    margin: 0 0 24px;
+    flex: 1;
+  }
+  .exp-body--light p { color: var(--steel); }
+  .exp-body--dark  p { color: #bdc8cd; }
+
+  /* ── Chip tags ── */
+  .exp-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: .63rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+  .exp-chip--glass {
+    position: absolute;
+    top: 14px; left: 14px;
+    background: rgba(241,251,255,.88);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: var(--ink);
+  }
+
+  /* ── Outlined orange button (dark body) ── */
+  .exp-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid var(--orange);
+    border-radius: 999px;
+    padding: 11px 22px;
+    color: var(--orange);
+    text-decoration: none;
+    font: 700 .78rem Montserrat;
+    width: fit-content;
+    transition: background .2s ease, color .2s ease;
+  }
+  .exp-btn-outline:hover { background: var(--orange); color: #fff; }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .exp-bento { grid-template-columns: 1fr; }
+    .exp-card--wide,
+    .exp-card--narrow,
+    .exp-card--half { grid-column: span 1; }
+  }
+</style>

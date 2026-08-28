@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    title: 'Bâtiment',
+    text: 'Construction de villas de luxe, bâtiments commerciaux et industriels avec une précision architecturale et des matériaux premium.',
+    image: '/images/real-villa-cotonou.jpg',
+  },
+  {
+    title: 'Pavage',
+    text: 'Aménagements extérieurs durables et esthétiques. Pose experte de pavés pour des espaces urbains et résidentiels impeccables.',
+    image: '/images/service-pavage.jpg',
+  },
+  {
+    title: 'Menuiserie Alu',
+    text: 'Conception et fabrication de structures en aluminium sur-mesure. Légèreté, résistance et design épuré pour vos façades.',
+    image: '/images/service-menuiserie-alu.jpg',
+  },
+];
+---
+<BaseLayout
+  title="NPS Group | Construction, pavage & menuiserie aluminium"
+  description="NPS Group accompagne vos projets de construction, d'aménagement, de pavage et de menuiserie aluminium au Bénin."
+>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="container hero-inner">
+
+      <!-- Texte gauche -->
+      <div class="hero-text">
+        <h1>Construire aujourd'hui.<br /><em>Faire durer demain.</em></h1>
+
+        <p class="hero-copy">
+          NPS Group pilote vos projets de bâtiment, d'aménagement et de menuiserie aluminium avec rigueur — de la conception à la livraison finale.
+        </p>
+
+        <div class="actions">
+          <a class="button" href="/contact/#devis">Démarrer votre projet →</a>
+          <a class="button button-outline" href="/realisations/">Voir nos réalisations</a>
+        </div>
+
+        <div class="hero-trust">
+          <span class="trust-item"><span class="trust-icon" aria-hidden="true"></span>Devis gratuit & rapide</span>
+          <span class="trust-item"><span class="trust-icon" aria-hidden="true"></span>Suivi de chantier rigoureux</span>
+          <span class="trust-item"><span class="trust-icon" aria-hidden="true"></span>Bénin & sous-région</span>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ═══ NOS CŒURS DE MÉTIER ═══ -->
+  <section class="section container">
+    <p class="eyebrow">NOS CŒURS DE MÉTIER</p>
+    <h2>Une expertise qui prend forme sur le terrain.</h2>
+    <div class="service-grid">
+      {services.map(({ title, text, image }) => (
+        <article class="service-card">
+          <img src={image} alt={`NPS Group — ${title}`} loading="lazy" decoding="async" />
+          <div>
+            <h3>{title}</h3>
+            <p>{text}</p>
+            <a href="/expertises/">En savoir plus <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══ PROOF BAND ═══ -->
+  <section class="proof-band">
+    <div class="container proof-grid">
+      <div><span>Un accompagnement<br />de bout en bout</span></div>
+      <div><span>Une exigence de<br />qualité terrain</span></div>
+      <div><span>Des solutions pensées<br />pour durer</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ NOTRE MÉTHODE ═══ -->
+  <section class="section section-dark">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">NOTRE MÉTHODE</p>
+        <h2>Rigueur technique. Vision durable.</h2>
+      </div>
+      <p>Chaque projet est piloté avec méthode : étude, exécution, contrôle et finition. Notre engagement est simple : livrer des ouvrages fiables qui valorisent durablement leur environnement.</p>
+    </div>
+  </section>
+
+  <!-- ═══ NOTRE PROCESSUS ═══ -->
+  <section class="section container process">
+    <p class="eyebrow">NOTRE PROCESSUS</p>
+    <h2>Un projet clair, à chaque étape.</h2>
+    <div class="process-grid">
+      <article><span>01</span><h3>Comprendre</h3><p>Nous échangeons sur vos objectifs, vos contraintes et l'usage attendu.</p></article>
+      <article><span>02</span><h3>Étudier</h3><p>Nos équipes définissent la solution technique adaptée à votre besoin.</p></article>
+      <article><span>03</span><h3>Réaliser</h3><p>Le chantier avance avec méthode, suivi et contrôle de la qualité.</p></article>
+      <article><span>04</span><h3>Livrer</h3><p>Nous finalisons un ouvrage fiable, fonctionnel et durable.</p></article>
+    </div>
+  </section>
+
+  <!-- ═══ BIM (version originale) ═══ -->
+  <section class="section bim-section">
+    <div class="container bim-grid">
+      <div>
+        <p class="eyebrow">BUREAU D'ÉTUDES BIM</p>
+        <h2>Concevoir avec précision avant de construire.</h2>
+        <p>Grâce à la modélisation BIM, nous anticipons les détails, coordonnons les intervenants et sécurisons les choix techniques dès la conception.</p>
+        <a class="button" href="/expertises/">Découvrir notre approche</a>
+      </div>
+      <div class="bim-visual">
+        <span>01 / BIM</span>
+        <strong>La précision<br />en amont.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section container">
+    <div class="cta-card">
+      <div class="cta-card-body">
+        <p class="eyebrow">UN PROJET À CONCRÉTISER ?</p>
+        <h2>Faisons avancer<br />vos idées.</h2>
+        <a class="button cta-btn" href="/contact/#devis">Demander un devis →</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .hero { min-height: 680px; }
+
+  /* Texte limité à ~55 % de la largeur, centré verticalement */
+  .hero-inner { padding: 80px 0; max-width: 100%; }
+  .hero-text   { max-width: 580px; }
+
+  /* h1 équilibré */
+  .hero h1 {
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -.045em;
+    margin-bottom: 20px;
+  }
+
+  /* ── Trust indicators ── */
+  .hero-trust { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(19,29,33,.08);
+    border-radius: 999px;
+    padding: 7px 16px 7px 9px;
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: .01em;
+  }
+  .trust-icon {
+    display: inline-block;
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='9' fill='%23f39c12'/%3E%3Cpath d='M5 9.5l2.5 2.5L13 6' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 720px) {
+    .hero { min-height: auto; }
+    .hero-inner { padding: 60px 0; }
+    .hero-text { max-width: 100%; }
+  }
+
+  /* ── CTA card ── */
+  .cta-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: 80px 60px;
+    background:
+      linear-gradient(135deg, rgba(19,29,33,.95) 0%, rgba(19,29,33,.80) 60%, rgba(19,29,33,.60) 100%),
+      url('/images/chantier-ouvriers.jpg')
+      center/cover;
+  }
+  /* Halo orange décoratif */
+  .cta-card::after {
+    content: "";
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(243,156,18,.22) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .cta-card-body {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 720px;
+  }
+  .cta-card .eyebrow { color: var(--orange); }
+  .cta-card h2 {
+    color: #f1fbff;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    letter-spacing: -.05em;
+    line-height: 1.08;
+    margin: 14px 0 36px;
+  }
+  .cta-btn { display: inline-flex; background: var(--orange); color: #fff; }
+  .cta-btn:hover { background: #d4860e; }
+
+  /* ── Service cards ── */
+  .service-card h3 { margin-top: 16px; }
+  .service-card {
+    border: 1px solid rgba(216,194,173,.2);
+    transition: border-color .2s ease;
+  }
+  .service-card:hover { border-color: rgba(243,156,18,.4); }
+</style>

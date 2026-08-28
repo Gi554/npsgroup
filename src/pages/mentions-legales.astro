@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Mentions légales | NPS Group"
+  description="Mentions légales du site npsgroup.bj — NPS Group, entreprise de construction à Abomey-Calavi, Bénin."
+>
+  <div class="container legal-page">
+
+    <header class="legal-header">
+      <p class="eyebrow">LÉGAL</p>
+      <h1>Mentions <em>légales</em></h1>
+    </header>
+
+    <div class="legal-body">
+
+      <section>
+        <h2>1. Éditeur du site</h2>
+        <p><strong>Raison sociale :</strong> NPS Group</p>
+        <p><strong>Siège social :</strong> Togoudo, Abomey-Calavi, République du Bénin</p>
+        <p><strong>Téléphone :</strong> <a href="tel:+2290144598447">+229 01 44 59 84 47</a></p>
+        <p><strong>E-mail :</strong> <a href="mailto:npsgroupcontact@gmail.com">npsgroupcontact@gmail.com</a></p>
+        <p><strong>Site web :</strong> <a href="https://npsgroup.bj">https://npsgroup.bj</a></p>
+      </section>
+
+      <section>
+        <h2>2. Directeur de la publication</h2>
+        <p>Le directeur de la publication est le représentant légal de NPS Group.</p>
+      </section>
+
+      <section>
+        <h2>3. Hébergement</h2>
+        <p>Ce site est un site statique généré avec <strong>Astro</strong> et déployé sur un hébergeur tiers. Pour toute question relative à l'hébergement, contactez-nous à l'adresse e-mail indiquée ci-dessus.</p>
+      </section>
+
+      <section>
+        <h2>4. Propriété intellectuelle</h2>
+        <p>L'ensemble des contenus présents sur ce site (textes, images, graphismes, logo) sont la propriété exclusive de NPS Group, sauf mention contraire. Toute reproduction, distribution ou utilisation sans autorisation préalable écrite est strictement interdite.</p>
+      </section>
+
+      <section>
+        <h2>5. Limitation de responsabilité</h2>
+        <p>NPS Group s'efforce de maintenir les informations publiées sur ce site aussi précises et à jour que possible. Toutefois, la société ne saurait être tenue responsable des omissions, inexactitudes ou carences dans la mise à jour des informations.</p>
+      </section>
+
+      <section>
+        <h2>6. Liens hypertextes</h2>
+        <p>Ce site peut contenir des liens vers des sites tiers. NPS Group n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.</p>
+      </section>
+
+      <section>
+        <h2>7. Droit applicable</h2>
+        <p>Les présentes mentions légales sont soumises au droit béninois. Tout litige relatif à l'utilisation de ce site relève de la compétence exclusive des juridictions béninoises.</p>
+      </section>
+
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-page { padding: 80px 0 110px; max-width: 800px; }
+
+  .legal-header { margin-bottom: 52px; }
+  .legal-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -.05em;
+    line-height: 1.08;
+    margin: 12px 0 0;
+    color: var(--ink);
+  }
+  .legal-header em { color: var(--orange); font-style: normal; }
+
+  .legal-body { display: flex; flex-direction: column; gap: 40px; }
+
+  .legal-body section h2 {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--orange);
+    display: inline-block;
+  }
+  .legal-body p {
+    font-size: .92rem;
+    line-height: 1.75;
+    color: var(--steel);
+    margin: 0 0 8px;
+  }
+  .legal-body p:last-child { margin-bottom: 0; }
+  .legal-body a { color: var(--orange); text-decoration: none; }
+  .legal-body a:hover { text-decoration: underline; }
+  .legal-body strong { color: var(--ink); font-weight: 700; }
+</style>

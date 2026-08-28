@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contact & devis | NPS Group" description="Contactez NPS Group pour discuter de votre projet et demander un devis.">
+
+  <div class="container cnt-page">
+
+    <!-- Header -->
+    <header class="cnt-header">
+      <p class="eyebrow">CONTACT</p>
+      <h1>Contact & <em>Devis</em></h1>
+      <p class="cnt-lead">Nous sommes à votre écoute pour discuter de vos projets industriels ou de construction. Remplissez le formulaire ci-dessous pour obtenir une estimation précise.</p>
+    </header>
+
+    <!-- Grille principale -->
+    <div class="cnt-grid" id="devis">
+
+      <!-- Formulaire -->
+      <div class="cnt-form-card">
+        <form id="quote-form">
+          <h2 class="form-title">Demande de devis BTP</h2>
+
+          <div class="form-row">
+            <label>
+              Nom complet / Entreprise
+              <input id="name" name="name" type="text" placeholder="Ex : Jean Dupont / Société SA" autocomplete="name" required />
+            </label>
+            <label>
+              Adresse e-mail
+              <input id="email" name="email" type="email" placeholder="votre@email.com" autocomplete="email" required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Numéro de téléphone
+              <input id="phone" name="phone" type="tel" placeholder="+229 XX XX XX XX" autocomplete="tel" />
+            </label>
+            <label>
+              Type de projet
+              <select id="service" name="service">
+                <option value="" disabled selected>Sélectionnez un type</option>
+                <option>Bâtiment & génie civil</option>
+                <option>Aménagement & pavage</option>
+                <option>Menuiserie aluminium</option>
+                <option>Études BIM</option>
+                <option>Autre</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Budget estimatif (FCFA)
+            <input id="budget" name="budget" type="text" placeholder="Ex : 50 000 000" />
+          </label>
+
+          <label>
+            Détails du projet
+            <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet, les délais souhaités, les contraintes éventuelles…" required></textarea>
+          </label>
+
+          <div class="form-submit">
+            <button class="button" type="submit">Envoyer la demande →</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="cnt-sidebar">
+
+        <!-- Coordonnées -->
+        <div class="coord-card">
+          <h3>Nos Coordonnées</h3>
+          <div class="coord-item">
+            <span class="coord-label">Siège Social</span>
+            <p>Togoudo, Abomey-Calavi<br />République du Bénin</p>
+          </div>
+          <div class="coord-item">
+            <span class="coord-label">Téléphone</span>
+            <p><a href="tel:+2290144598447">+229 01 44 59 84 47</a></p>
+          </div>
+          <div class="coord-item">
+            <span class="coord-label">E-mail</span>
+            <p><a href="mailto:npsgroupcontact@gmail.com">npsgroupcontact@gmail.com</a></p>
+          </div>
+          <a class="coord-wa" href="https://wa.me/2290144598447" target="_blank" rel="noopener noreferrer">
+            Écrire sur WhatsApp
+          </a>
+          <div class="coord-blur" aria-hidden="true"></div>
+        </div>
+
+        <!-- Image chantier -->
+        <a class="cnt-img-card" href="/realisations/">
+          <img
+            src="/images/chantier-ouvriers.jpg"
+            alt="Chantier NPS Group"
+            loading="lazy" decoding="async"
+          />
+          <div class="cnt-img-overlay">
+            <p class="cnt-img-label">Expertise Terrain</p>
+            <p class="cnt-img-cta">Voir nos réalisations →</p>
+          </div>
+        </a>
+
+        <!-- Placeholder carte -->
+        <div class="cnt-map">
+          <span class="cnt-map-icon" aria-hidden="true">◎</span>
+          <p>Carte de localisation</p>
+          <span>Abomey-Calavi, Bénin</span>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<script>
+  document.querySelector<HTMLFormElement>('#quote-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const val = (id: string) =>
+      (document.querySelector<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(`#${id}`)?.value ?? '').trim();
+    const lines = [
+      'Bonjour NPS Group, je souhaite demander un devis.',
+      '',
+      `Nom : ${val('name')}`,
+      `E-mail : ${val('email')}`,
+      `Téléphone : ${val('phone')}`,
+      `Type de projet : ${val('service')}`,
+      `Budget estimatif : ${val('budget')} FCFA`,
+      '',
+      `Détails du projet :\n${val('message')}`,
+    ];
+    window.open(
+      `https://wa.me/2290144598447?text=${encodeURIComponent(lines.join('\n'))}`,
+      '_blank',
+      'noopener'
+    );
+  });
+</script>
+
+<style>
+  /* ── Page ── */
+  .cnt-page { padding: 80px 0 110px; }
+
+  /* ── Header ── */
+  .cnt-header { max-width: 680px; margin-bottom: 52px; }
+  .cnt-header h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -.05em;
+    line-height: 1.06;
+    margin: 12px 0 18px;
+    color: var(--ink);
+  }
+  .cnt-header em  { color: var(--orange); font-style: normal; }
+  .cnt-lead { color: var(--steel); font-size: 1rem; line-height: 1.68; margin: 0; }
+
+  /* ── Grille ── */
+  .cnt-grid {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* ── Formulaire ── */
+  .cnt-form-card {
+    background: var(--paper);
+    border-radius: 28px;
+    border: 1px solid rgba(216,194,173,.22);
+    box-shadow: 0 4px 24px rgba(134,83,0,.07);
+    padding: 36px;
+  }
+  /* Réinitialise les styles globaux form à l'intérieur de la card */
+  .cnt-form-card form {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .form-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -.025em;
+    color: var(--ink);
+    margin: 0 0 26px;
+  }
+  /* Rangée 2 colonnes */
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  /* Pill-shape pour les champs de cette page */
+  .cnt-form-card input,
+  .cnt-form-card select { border-radius: 999px; }
+  .cnt-form-card textarea { border-radius: 20px; resize: vertical; }
+  .cnt-form-card input:focus,
+  .cnt-form-card select:focus,
+  .cnt-form-card textarea:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 2px rgba(243,156,18,.15);
+  }
+
+  .form-submit { display: flex; justify-content: flex-end; padding-top: 4px; }
+
+  /* ── Sidebar ── */
+  .cnt-sidebar { display: flex; flex-direction: column; gap: 18px; }
+
+  /* Carte coordonnées (fond sombre) */
+  .coord-card {
+    background: var(--ink);
+    border-radius: 28px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .coord-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f1fbff;
+    margin: 0;
+    letter-spacing: -.02em;
+  }
+  .coord-item { display: flex; flex-direction: column; gap: 3px; }
+  .coord-label {
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .coord-item p { margin: 0; font-size: .85rem; line-height: 1.55; color: #bdc8cd; }
+  .coord-item a { color: #bdc8cd; text-decoration: none; transition: color .18s; }
+  .coord-item a:hover { color: var(--orange); }
+
+  /* Bouton WhatsApp dans la carte sombre */
+  .coord-wa {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid rgba(241,251,255,.25);
+    border-radius: 999px;
+    padding: 10px 20px;
+    color: #f1fbff;
+    font: 700 .75rem Montserrat;
+    text-decoration: none;
+    width: fit-content;
+    transition: border-color .18s, color .18s, background .18s;
+  }
+  .coord-wa:hover { border-color: var(--orange); color: var(--orange); background: rgba(243,156,18,.08); }
+
+  /* Halo décoratif */
+  .coord-blur {
+    position: absolute;
+    bottom: -64px; right: -64px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(243,156,18,.14) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Carte image */
+  .cnt-img-card {
+    display: block;
+    position: relative;
+    height: 200px;
+    border-radius: 28px;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  .cnt-img-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+  }
+  .cnt-img-card:hover img { transform: scale(1.05); }
+  .cnt-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(19,29,33,.88) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 24px;
+  }
+  .cnt-img-label {
+    font-size: .6rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 4px;
+  }
+  .cnt-img-cta {
+    font-size: .9rem;
+    font-weight: 700;
+    color: #f1fbff;
+    margin: 0;
+  }
+
+  /* Placeholder carte géographique */
+  .cnt-map {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .cnt-map-icon { font-size: 1.8rem; color: var(--steel); opacity: .4; }
+  .cnt-map p    { margin: 0; font-size: .8rem; font-weight: 700; color: var(--steel); }
+  .cnt-map span { font-size: .72rem; color: var(--steel); opacity: .65; }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .cnt-grid  { grid-template-columns: 1fr; }
+    .form-row  { grid-template-columns: 1fr; }
+  }
+</style>
